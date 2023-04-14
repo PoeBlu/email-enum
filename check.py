@@ -7,8 +7,7 @@ import subprocess
 
 def asciiBanner():
     import pyfiglet
-    banner = pyfiglet.figlet_format("Email Enum")
-    return banner
+    return pyfiglet.figlet_format("Email Enum")
 
 @click.command()
 @click.argument('email', nargs=1)
@@ -24,13 +23,13 @@ def emailEnum(email):
         sys.exit()
     import sites
     insta_response = sites.instagramCheck(email)
-    print("[*] Instagram: " + insta_response)
+    print(f"[*] Instagram: {insta_response}")
     twit_response = sites.twitterCheck(email)
-    print("[*] Twitter: " + twit_response)
+    print(f"[*] Twitter: {twit_response}")
     snap_response = sites.snapchatCheck(email)
-    print("[*] Snapchat: " + snap_response)
+    print(f"[*] Snapchat: {snap_response}")
     face_response = sites.facebookCheck(email)
-    print("[*] Facebook: " + face_response)
+    print(f"[*] Facebook: {face_response}")
     sites.quitSelenium()
 
 emailEnum()
